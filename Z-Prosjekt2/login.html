@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Sign In</h1>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  {% if success %}<div class="success">Account created! Log in below.</div>{% endif %}
+  <form method="POST">
+    <label>Username or Email</label>
+    <input name="id" required autofocus>
+    <label>Password</label>
+    <input name="password" type="password" required>
+    <button>Log In</button>
+  </form>
+  <div class="link">No account? <a href="/register">Register</a></div>
+</div>
+{% endblock %}
