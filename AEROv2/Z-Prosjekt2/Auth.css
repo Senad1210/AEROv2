@@ -1,0 +1,190 @@
+/* ── AUTH OVERLAY ─────────────────────────────────────────── */
+.auth-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 20, 38, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.auth-overlay.visible {
+  display: flex;
+}
+
+/* ── PANEL ─────────────────────────────────────────────────── */
+.auth-panel {
+  position: relative;
+  width: 380px;
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 56px 40px 40px;
+  box-shadow: -8px 0 40px rgba(8, 20, 38, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-panel.visible {
+  transform: translateX(0);
+}
+
+/* ── CLOSE ──────────────────────────────────────────────────── */
+.auth-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #102B4E;
+  opacity: 0.5;
+  padding: 4px;
+  transition: opacity 0.2s;
+  line-height: 0;
+}
+
+.auth-close:hover { opacity: 1; }
+
+/* ── BRAND ───────────────────────────────────────────────────── */
+.auth-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #102B4E;
+  margin-bottom: 40px;
+}
+
+/* ── TABS ────────────────────────────────────────────────────── */
+.auth-tabs {
+  position: relative;
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e8ecf0;
+  margin-bottom: 36px;
+}
+
+.auth-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #8a9bb0;
+  padding: 0 0 14px;
+  margin-right: 28px;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-tab.active { color: #102B4E; }
+
+/* sliding underline */
+.auth-tab-ink {
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: #102B4E;
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* ── FORMS ───────────────────────────────────────────────────── */
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.auth-form.active { display: flex; }
+
+/* ── FIELDS ──────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #102B4E;
+}
+
+.field input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #d4dbe4;
+  border-radius: 4px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.92rem;
+  color: #102B4E;
+  background: #f8fafc;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.field input::placeholder { color: #b0bec8; }
+
+.field input:focus {
+  border-color: #102B4E;
+  background: #ffffff;
+}
+
+/* ── SUBMIT ──────────────────────────────────────────────────── */
+.auth-submit {
+  margin-top: 8px;
+  width: 100%;
+  padding: 13px;
+  background: #102B4E;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.auth-submit:hover  { background: #1a3d6b; }
+.auth-submit:active { transform: scale(0.98); }
+
+/* ── SWITCH LINK ──────────────────────────────────────────────── */
+.auth-switch {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.85rem;
+  color: #8a9bb0;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.auth-switch a {
+  color: #102B4E;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ── MOBILE ───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .auth-panel {
+    width: 100vw;
+    padding: 56px 24px 32px;
+  }
+}

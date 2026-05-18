@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Montana – Account</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: #f2f4f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #102B4E;
+      letter-spacing: -1px;
+      text-decoration: none;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dde2e8;
+      border-radius: 6px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #e4e8ed;
+      margin-bottom: 28px;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #9aa5b1;
+      padding: 0 0 12px;
+      margin-right: 24px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab.active {
+      color: #102B4E;
+      border-bottom-color: #102B4E;
+    }
+
+    .form { display: none; flex-direction: column; gap: 16px; }
+    .form.active { display: flex; }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #102B4E;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #d0d7de;
+      border-radius: 4px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      color: #102B4E;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input:focus { border-color: #102B4E; }
+    input::placeholder { color: #b0bec8; }
+
+    button.submit {
+      margin-top: 4px;
+      width: 100%;
+      padding: 11px;
+      background: #102B4E;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    button.submit:hover { background: #1a3d6b; }
+
+    .switch {
+      font-size: 0.83rem;
+      color: #8a9bb0;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .switch a {
+      color: #102B4E;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .switch a:hover { text-decoration: underline; }
+
+    .back {
+      margin-top: 20px;
+      font-size: 0.83rem;
+      color: #8a9bb0;
+    }
+
+    .back a {
+      color: #102B4E;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <a class="logo" href="main.html">MONTANA</a>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Log in</button>
+      <button class="tab" data-tab="signup">Sign up</button>
+    </div>
+
+    <!-- Login -->
+    <div class="form active" id="formLogin">
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <button class="submit">Log in</button>
+      <p class="switch">No account? <a href="#" data-switch="signup">Sign up</a></p>
+    </div>
+
+    <!-- Sign up -->
+    <div class="form" id="formSignup">
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Your name" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" placeholder="Min. 8 characters" />
+      </div>
+      <button class="submit">Create account</button>
+      <p class="switch">Already have one? <a href="#" data-switch="login">Log in</a></p>
+    </div>
+  </div>
+
+  <p class="back"><a href="main.html">← Back to shop</a></p>
+
+  <script>
+    const tabs  = document.querySelectorAll('.tab');
+    const forms = document.querySelectorAll('.form');
+
+    function switchTab(name) {
+      tabs.forEach(t  => t.classList.toggle('active', t.dataset.tab === name));
+      forms.forEach(f => f.classList.toggle('active', f.id === 'form' + name.charAt(0).toUpperCase() + name.slice(1)));
+    }
+
+    tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+    document.querySelectorAll('[data-switch]').forEach(a =>
+      a.addEventListener('click', e => { e.preventDefault(); switchTab(a.dataset.switch); })
+    );
+
+    // Open on the correct tab if URL has ?tab=signup
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('tab') === 'signup') switchTab('signup');
+  </script>
+
+</body>
+</html>

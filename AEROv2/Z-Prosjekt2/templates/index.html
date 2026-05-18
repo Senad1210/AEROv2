@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERO SHOP</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #222;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        .hex-box {
+            color: black;
+            font-weight: bold;
+        }
+
+        .stock-IN_STOCK {
+            color: green;
+            font-weight: bold;
+        }
+
+        .stock-LOW_STOCK {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .stock-OUT_OF_STOCK {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AERO SHOP Inventory</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Color</th>
+                <th>ML</th>
+                <th>HEX</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+
+                <td>{{ product.product_name or 'N/A' }}</td>
+
+                <td>{{ product.color_name or 'N/A' }}</td>
+
+                <td>{{ product.content_ml or 'N/A' }}</td>
+
+                <td
+                    class="hex-box"
+                    style="background-color: {{ product.hex or '#ffffff' }};"
+                >
+                    {{ product.hex if product.hex else 'N/A' }}
+                </td>
+
+                <td>
+                    ${{ "%.2f"|format(product.price if product.price else 0) }}
+                </td>
+
+                <td>{{ product.amount if product.amount is not none else 0 }}</td>
+
+                <td class="stock-{{ product.stock }}">
+                    {{ product.stock or 'UNKNOWN' }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

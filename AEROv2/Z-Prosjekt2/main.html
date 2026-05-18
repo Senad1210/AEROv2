@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Montana</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij4KICA8cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgZmlsbD0iIzEwMkI0RSIvPgogIDxwYXRoIGQ9Ik0yOCAxMDAgVjI4IEg0OCBMNjQgNzIgTDgwIDI4IEgxMDAgVjEwMCBIODQgVjU0IEw2OCAxMDAgSDYwIEw0NCA1NCBWMTAwIFoiCiAgICAgICAgZmlsbD0id2hpdGUiLz4KPC9zdmc+" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="card.css">
+  <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+
+<header class="top-bar">
+  <div class="top-bar-inner">
+
+    <div class="top-section">
+      <a class="logo" href="#">MONTANA</a>
+    </div>
+
+    <div class="top-section">
+      <div class="search-wrap">
+        <input type="text" placeholder="Søk etter produkter" />
+        <button aria-label="Søk">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="top-section">
+      <div class="top-icons">
+
+        <!--User-->
+        <a href="/Auth.html" class="icon-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+
+        <!--Shopping Cart-->
+        <a href="#" class="icon-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+
+
+
+
+
+
+<div class="position">
+  <div class="container">
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Black 50ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Black 50ml</h3>
+        <div class="card-info"><p>Stock</p><span>30 kr</span></div>
+        <button onclick="openColors('Montana Black 50ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Black 150ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Black 150ml</h3>
+        <div class="card-info"><p>Stock</p><span>40 kr</span></div>
+        <button onclick="openColors('Montana Black 150ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Black 400ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Black 400ml</h3>
+        <div class="card-info"><p>Stock</p><span>60 kr</span></div>
+        <button onclick="openColors('Montana Black 400ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Black 400ml - Infra Colors.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Black Infra Colors</h3>
+        <div class="card-info"><p>Stock</p><span>65 kr</span></div>
+        <button onclick="openColors('Montana Black Infra Colors')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Chalk 400ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Chalk 400ml</h3>
+        <div class="card-info"><p>Stock</p><span>70 kr</span></div>
+        <button onclick="openColors('Montana Chalk 400ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Gold 400ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Gold 400ml</h3>
+        <div class="card-info"><p>Stock</p><span>75 kr</span></div>
+        <button onclick="openColors('Montana Gold 400ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Stencil 400ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Stencil 400ml</h3>
+        <div class="card-info"><p>Stock</p><span>60 kr</span></div>
+        <button onclick="openColors('Montana Stencil 400ml')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana Black 600ml - Extended.jpg"></div>
+      <div class="card-content">
+        <h3>Montana Black 600ml Extended</h3>
+        <div class="card-info"><p>Stock</p><span>85 kr</span></div>
+        <button onclick="openColors('Montana Black 600ml Extended')">Inspect</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="/images/Montana ULTRA WIDE 750ml.jpg"></div>
+      <div class="card-content">
+        <h3>Montana ULTRA WIDE 750ml</h3>
+        <div class="card-info"><p>Stock</p><span>100 kr</span></div>
+        <button onclick="openColors('Montana ULTRA WIDE 750ml')">Inspect</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="colorModal" class="modal hidden">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2 id="modalTitle"></h2>
+      <button onclick="closeModal()">✕</button>
+    </div>
+
+    <div id="colorGrid" class="color-grid"></div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+
+</body>
+</html>

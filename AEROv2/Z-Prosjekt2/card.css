@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Barlow', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f4f7f8;
+}
+
+/* LAYOUT */
+.position {
+  display: flex;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.container {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+
+/* CARD */
+.card {
+  width: 220px;
+  background: #fff;
+
+  border: 1px solid rgba(16, 43, 78, 0.12);
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.04),
+    0 1px 2px rgba(0,0,0,0.03);
+
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08),
+    0 4px 8px rgba(0,0,0,0.04);
+}
+
+/* IMAGE */
+.card-image {
+  width: 100%;
+  height: 200px;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  transition: 0.3s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.03);
+}
+
+/* CONTENT */
+.card-content {
+  padding: 18px;
+}
+
+.card-content h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #102B4E;
+
+  min-height: 46px;
+}
+
+/* STOCK + PRICE */
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 0 18px;
+}
+
+.card-info p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.card-info span {
+  font-size: 15px;
+  font-weight: 700;
+  color: #102B4E;
+}
+
+/* BUTTON */
+.card-content button {
+  width: 100%;
+  height: 42px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #102B4E;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.card-content button:hover {
+  background: #163964;
+}
